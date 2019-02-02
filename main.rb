@@ -74,3 +74,13 @@ post '/login/:username/:password' do
     end
 
 end
+
+get '/env/:username' do 
+    content-type :json 
+    begin 
+        env = Environment.find_by(username: params[:username])
+        env = env.to_json 
+    rescue 
+        'not logged in'
+    end
+end
