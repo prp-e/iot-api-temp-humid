@@ -78,7 +78,7 @@ end
 get '/env/:username' do 
     content_type :json 
     begin 
-        env = Environment.find_by(username: params[:username])
+        env = Environment.find_by(user: params[:username])
         env = env.to_json 
     rescue 
         'not logged in'
