@@ -76,7 +76,7 @@ post '/login/:username/:password' do
 end
 
 get '/env/:username' do 
-    content-type :json 
+    content_type :json 
     begin 
         env = Environment.find_by(username: params[:username])
         env = env.to_json 
