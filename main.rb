@@ -1,6 +1,7 @@
 require 'sinatra' 
 require 'mongoid' 
 require 'json'
+require 'digest'
 
 configure do 
    Mongoid.load!("./database.yml") 
@@ -38,3 +39,4 @@ end
 def username 
     return session[:username]
 end
+
