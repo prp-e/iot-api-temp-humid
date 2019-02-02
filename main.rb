@@ -84,3 +84,7 @@ get '/env/:username' do
         'not logged in'
     end
 end
+
+get '/' do 
+    'Read the docs and use this API with your ESP8266 Setup'
+end
