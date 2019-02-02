@@ -34,3 +34,7 @@ helpers do
         end 
     end
 end
+
+def username 
+    return session[:username]
+end
