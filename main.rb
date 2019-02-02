@@ -45,7 +45,7 @@ end
 post '/signup/:username/:password/:email' do 
     begin
         user = User.create(:username => params[:username], :password => Digest::MD5.hexdigest(params[:password]), :email => params[:email])
-        'Done successfuly'
+        'Done successfuly\n'
     rescue
         'Signup unsuccesful'
     end
