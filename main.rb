@@ -42,3 +42,11 @@ def username
     return session[:username]
 end
 
+post '/signup/:username/:password/:email' do 
+    begin
+        user = User.create(:username => params[:username], :password => Digest::MD5.hexdigest(params[:password]), :email => params[:email])
+        'Done successfuly'
+    rescue
+        'Signup unsuccesful'
+    end
+end
