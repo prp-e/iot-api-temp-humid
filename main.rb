@@ -64,7 +64,8 @@ post '/login/:username/:password' do
 
     begin 
         User.find_by(username: params[:username], password: Digest::MD5.hexdigest(params[:password]))
-        session[:username] = params[:username] 
+        session[:username] = params[:username]
+        session[:password] = params[:password]
 
         'login successful\n' 
     rescue 
