@@ -59,3 +59,16 @@ post '/env/:temperature/:humidity' do
         env = Environment.create(:temperature => params[:temperature], :humidity => params[:humidity])
     end
 end
+
+post '/login/:username/:password' do 
+
+    begin 
+        User.find_by(username: params[:username], password: Digest::MD5.hexdigest(params[:password]))
+        session[:username] = params[:username] 
+
+        'login successful\n' 
+    rescue 
+        'please try again\n'
+    end
+
+end
