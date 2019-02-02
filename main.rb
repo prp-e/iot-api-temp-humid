@@ -50,3 +50,12 @@ post '/signup/:username/:password/:email' do
         'Signup unsuccesful'
     end
 end
+
+post '/env/:temperature/:humidity' do 
+
+    if session[:username].nil? 
+        'login required'
+    else 
+        env = Environment.create(:temperature => params[:temperature], :humidity => params[:humidity])
+    end
+end
