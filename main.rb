@@ -3,6 +3,8 @@ require 'mongoid'
 require 'json'
 require 'digest'
 
+set :bind, '0.0.0.0'
+
 configure do 
    Mongoid.load!("./database.yml") 
 end
