@@ -23,6 +23,7 @@ end
 class Environment 
     include Mongoid::Document 
 
+    field :user ,  type: String
     field :temperature, type: String 
     field :humidity, type: String 
 
@@ -56,7 +57,7 @@ post '/env/:temperature/:humidity' do
     if session[:username].nil? 
         'login required'
     else 
-        env = Environment.create(:temperature => params[:temperature], :humidity => params[:humidity])
+        env = Environment.create(:user => session[:username], :temperature => params[:temperature], :humidity => params[:humidity])
     end
 end
 
