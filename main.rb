@@ -54,11 +54,11 @@ end
 
 post '/env/:temperature/:humidity' do 
 
-    if session[:username].nil? 
-        'login required'
-    else 
-        env = Environment.create(:user => session[:username], :temperature => params[:temperature], :humidity => params[:humidity])
-    end
+    #if session[:username].nil? 
+    #    'login required'
+    #else 
+    env = Environment.create(:user => session[:username], :temperature => params[:temperature], :humidity => params[:humidity])
+    #end
 end
 
 post '/login/:username/:password' do 
