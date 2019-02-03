@@ -54,11 +54,11 @@ end
 
 post '/env/:temperature/:humidity' do 
 
-    #if session[:username].nil? 
-    #    'login required'
-   # else 
+    if session[:username].nil? 
+        'login required'
+    else 
          env = Environment.create(:user => session[:username], :temperature => params[:temperature], :humidity => params[:humidity])
-   # end
+    end
 end
 
 post '/login/:username/:password' do 
@@ -77,12 +77,12 @@ end
 
 get '/env/:username' do 
     content_type :json 
-    #begin 
-        env = Environment.find_by(user: params[:username])
+    begin 
+        env = Environment.find_by()
         env = env.to_json 
-    #rescue 
-    #    'not logged in'
-    #end
+    rescue 
+        'not logged in'
+    end
 end
 
 get '/' do 
